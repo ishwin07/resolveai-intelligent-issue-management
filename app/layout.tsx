@@ -1,3 +1,5 @@
+import { ModeProvider } from "./ModeContext";
+
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -22,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ClientProviders>
-          {children}
-        </ClientProviders>
+        <ModeProvider>
+  <ClientProviders>
+    {children}
+  </ClientProviders>
+</ModeProvider>
       </body>
     </html>
   );

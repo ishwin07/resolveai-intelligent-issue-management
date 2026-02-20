@@ -1,5 +1,7 @@
 'use client';
 
+import ModeToggle from "@/components/ModeToggle";
+
 import { ReactNode, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
@@ -292,9 +294,15 @@ export default function DashboardLayout({ children, title }: DashboardLayoutProp
         </div>
 
         {/* Content */}
-        <div className="p-6">
-          {children}
-        </div>
+        {/* Desktop Header */}
+<div className="hidden lg:flex items-center justify-end bg-white border-b px-6 py-3">
+  <ModeToggle />
+</div>
+
+{/* Content */}
+<div className="p-6">
+  {children}
+</div>
       </div>
     </div>
   );
